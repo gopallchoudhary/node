@@ -1,0 +1,15 @@
+services:
+  nodejs-server:
+    image: gopalchoudhary/node
+    networks:
+      - deploynode-internal
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.node.rule=Host(`node.gopalchoudhary.dev`)"
+      - "traefik.http.routers.node.entrypoints=websecure"
+      - "traefik.http.routers.node.tls.certresolver=myresolver"
+      - "traefik.http.services.node.loadbalancer.server.port=8000"
+
+networks:
+  deploynode-internal:
+    external: true
