@@ -1,7 +1,7 @@
 import express from "express";
 
 const app = express();
-const PORT = process.env.PORT ?? 8080;
+const PORT = process.env.PORT ?? 8000;
 
 app.get("/", (req, res) => {
 	return res.json({ message: "Node server is healthy" });
